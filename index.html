@@ -8,11 +8,22 @@
 </head>
 <body>
     <h1>Minha lista de tarefas</h1>
-    <input type="text" placeholder="Digite a sua tarefa">
-    <button onclick="adicionarTarefa()">Adicionar</button>
-    <ul>
-        
-    </ul>
+    <div class="input-container">
+        <input id="taskInput" type="text" placeholder="Digite a sua tarefa">
+        <button id="addTaskBtn" >Adicionar</button>
+    </div>
+
+    <ul id="taskList"></ul>
+    <template id="taskTemplate">
+        <li>
+            <span></span>
+            <div class="actions">
+                <span>✔</span>
+                <span>🗑</span>
+            </div>
+        </li>
+    </template>
+    
     <script src="script.js"></script>
 </body>
 </html>

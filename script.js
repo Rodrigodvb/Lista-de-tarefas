@@ -1,22 +1,61 @@
-/*
-Lista de tarefas
-[x] Saber quando o botão for clicado
-[x] Pegar o valor do input
-[x] Criar um elemento li
-[x] Colocar o valor do input dentro do li
-[x] Colocar o li dentro da ul
-*/
-function adicionarTarefa(){
-    let valorDoInput = document.querySelector("input").value
+const input = document.getElementById("taskInput");
+const button = document.getElementById("addTaskBtn");
+const list = document.getElementById("taskList");
 
-    let li = document.createElement("li")
-    li.innerHTML = valorDoInput + "<span onclick='deletarTarefa(this)'>❌</span>"
+let tarefas = [];
+// Adicionar tarefa
+button.addEventListener("click", () => {
+    const texto = input.value.trim();
+    if (texto === "") return;
+    const tarefa = {
+        id:Date.now(),
+        texto: texto,
+        concluida: false
+    };
+    tarefas.push(tarefa);
+    renderizarTarefas();
+    input.value = "";
+})
 
-    document.querySelector("ul").appendChild(li)
-   
-    document.querySelector("input").value = ""
+//Renderizar lista
+function renderizarTarefas(){
+    list.innerHTML = "";
+    tarefas.forEach(tarefa => {
+        const li = document.createElement("li");
+        if (tarefa.concluida) {
+            li.classList.add("completed");
+        }
+        const spanTexto = document.createElement("span");
+        spanTexto.textContent = tarefa.texto;
+
+        // marcar como concluída
+        spanTexto.addEventListener("click", () => {
+            tarefa.concluida = !tarefa.concluida;
+            renderizarTarefas();
+        });
+        const actions = document.createElement("div");
+        actions.classList.add("actions");
+        const btnDelete = document.createElement("span");
+        btnDelete.textContent = "🗑";
+        btnDelete.addEventListener("click", () => {
+            tarefas = tarefas.filter(t => t.id !== tarefa.id);
+            renderizarTarefas();
+        });
+        actions.appendChild(btnDelete);
+        li.appendChild(spanTexto);
+        li.appendChild(actions);
+        list.appendChild(li);
+    });
 }
 
-function deletarTarefa(li){
-    li.parentElement.remove()
+function salvarNoLocalStorage() {
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function carregarDoLocalStorage() {
+    const dados = localStorage. getItem("tarefas");
+    if (dados) {
+        tarefas = JSON.parse(dados);
+        renderizarTarefas();
+    }
 }
