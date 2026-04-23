@@ -16,6 +16,22 @@ h1{
     color: rgb(73, 12, 153);
     text-align: center;
 }
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.filters button {
+    flex: 1;
+    margin: 0 5px;
+    background-color: #ddd;
+    color: black;
+}
+.filters button.active {
+    background-color: rgb(73, 12, 153);
+    color: white;
+}
+
 /* Input + botão */
 .input-container {
     display: flex;

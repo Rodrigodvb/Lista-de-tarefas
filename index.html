@@ -12,6 +12,12 @@
         <input id="taskInput" type="text" placeholder="Digite a sua tarefa">
         <button id="addTaskBtn" >Adicionar</button>
     </div>
+    <div class="filters">
+        <button data-filter="todas">Todas</button>
+        <button data-filter="pendentes">Pendentes</button>
+        <button data-filter="concluidas">Concluídas</button>
+    </div>
+    <p id="taskCounter"></p>
 
     <ul id="taskList"></ul>
     <template id="taskTemplate">
@@ -24,6 +30,6 @@
         </li>
     </template>
     
-    <script src="script.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
