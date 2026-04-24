@@ -1,45 +1,126 @@
-# Lista de Tarefas Simples
+# 📋 Lista de Tarefas (Fullstack)
 
-Este é um projeto de uma aplicação web simples para criar e gerenciar uma lista de tarefas (To-Do List). É um ótimo projeto para iniciantes que estão aprendendo HTML, CSS e JavaScript.
+![GitHub repo size](https://img.shields.io/github/repo-size/Rodrigodvb/Lista-de-tarefas)
+![GitHub stars](https://img.shields.io/github/stars/Rodrigodvb/Lista-de-tarefas?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/Rodrigodvb/Lista-de-tarefas)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Backend](https://img.shields.io/badge/backend-FastAPI-green)
+![Frontend](https://img.shields.io/badge/frontend-JavaScript-blue)
+![Auth](https://img.shields.io/badge/auth-JWT-orange)
 
-## 🚀 Funcionalidades
+Aplicação fullstack de gerenciamento de tarefas com autenticação de usuários, desenvolvida para estudo de arquitetura moderna com separação de responsabilidades (frontend + API).
 
-*   **Adicionar Tarefas:** Digite uma tarefa no campo de texto e clique em "Adicionar" para incluí-la na lista.
-*   **Excluir Tarefas:** Clique no ícone de "❌" ao lado de uma tarefa para removê-la da lista.
-*   **Interface Limpa:** Um design simples e direto para focar na funcionalidade.
+---
 
-## 🛠️ Tecnologias Utilizadas
+## 🎥 Demonstração
 
-O projeto foi construído utilizando as seguintes tecnologias:
+![Demo do projeto](frontend/assets/demonstracao.gif)
 
-*   **HTML5:** Para a estrutura e o conteúdo da página web.
-*   **CSS3:** Para a estilização e o design da aplicação.
-*   **JavaScript:** Para a lógica e interatividade do lado do cliente (adicionar e remover tarefas).
+---
 
-## 📂 Estrutura de Arquivos
+## 🚀 Tecnologias
 
-O projeto está organizado da seguinte forma:
+### Backend
+- FastAPI
+- SQLAlchemy
+- SQLite
+- JWT (python-jose)
+- Passlib (bcrypt)
 
-```
-/
-├── index.html      # O arquivo principal que estrutura a página
-├── style.css       # A folha de estilos para o design visual
-└── script.js       # O código JavaScript que controla a funcionalidade
-```
+### Frontend
+- JavaScript (ES Modules)
+- HTML5 + CSS3
+- Fetch API
 
-*   `index.html`: Contém o esqueleto da aplicação, incluindo o campo de input, o botão e a lista onde as tarefas são exibidas.
-*   `style.css`: Define a aparência da página, como cores, fontes e o layout dos elementos.
-*   `script.js`: Implementa a lógica para adicionar novas tarefas à lista e remover tarefas existentes.
+---
 
-## 🏁 Como Usar
+## ✨ Funcionalidades
 
-Para executar este projeto, basta seguir os passos abaixo:
+- 🔐 Autenticação com JWT
+- 👤 Registro e login de usuários
+- 📌 CRUD completo de tarefas
+- 🔍 Filtro por status
+- 📊 Contador de tarefas
+- 🔒 Isolamento por usuário
 
-1.  Clone este repositório para a sua máquina local:
-    ```bash
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-    ```
-2.  Navegue até o diretório do projeto.
-3.  Abra o arquivo `index.html` no seu navegador de preferência.
+---
 
-E pronto! Você já pode começar a adicionar suas tarefas.
+## 🧱 Arquitetura
+
+Frontend (JS modular)
+↓
+Fetch API
+↓
+Backend (FastAPI)
+↓
+SQLAlchemy ORM
+↓
+SQLite
+
+---
+
+## 🔐 Autenticação
+
+- Token JWT armazenado no `localStorage`
+- Enviado via header:
+
+---
+
+- Proteção de rotas no backend
+- Cada usuário acessa apenas seus dados
+
+---
+
+## ⚙️ Como rodar o projeto
+
+### 1. Backend
+
+```bash
+pip install fastapi uvicorn sqlalchemy passlib[bcrypt] python-jose
+python -m uvicorn backend.main:app --reload
+
+2. Frontend
+cd frontend
+python -m http.server 5500
+
+Acesse:
+
+http://localhost:5500/login.html
+🔄 Fluxo da aplicação
+Usuário se registra
+Realiza login
+Recebe token JWT
+Token é salvo no navegador
+Requisições autenticadas são feitas
+Backend valida e retorna dados do usuário
+🐛 Problemas comuns
+404 no login
+
+✔ Use /auth/login
+
+Não cria tarefas
+
+✔ Verifique token no header
+
+Erro de import no backend
+
+✔ Use imports com backend.
+
+📈 Melhorias futuras
+ Logout
+ Refresh token
+ UI moderna (React)
+ Deploy em produção
+ Docker
+ Testes automatizados
+📌 Status
+
+🚧 Projeto em evolução — foco em aprendizado de arquitetura fullstack
+
+👨‍💻 Autor
+
+Desenvolvido por Rodrigo
+
+📄 Licença
+
+MIT
