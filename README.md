@@ -80,8 +80,8 @@ pip install fastapi uvicorn sqlalchemy passlib[bcrypt] python-jose
 python -m uvicorn backend.main:app --reload
 ```
 ---
+### 2. Frontend
 ```bash
-2. Frontend
 cd frontend
 python -m http.server 5500
 
