@@ -86,6 +86,9 @@ python -m http.server 5500
 Acesse:
 
 http://localhost:5500/login.html
+```
+---
+
 🔄 Fluxo da aplicação
 Usuário se registra
 Realiza login
@@ -105,6 +108,8 @@ Não cria tarefas
 Erro de import no backend
 
 ✔ Use imports com backend.
+
+---
 
 📈 Melhorias futuras
  Logout
