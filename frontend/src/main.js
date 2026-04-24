@@ -1,10 +1,10 @@
-import {
-    getTarefas,
-    criarTarefaAPI,
-    toggleTarefaAPI,
-    deletarTarefaAPI
-} from "./api.js";
+import { getTarefas, criarTarefaAPI, toggleTarefaAPI, deletarTarefaAPI } from "./api.js";
 import { renderizar } from "./ui.js";
+import { getToken } from "./auth.js";
+
+if (!getToken()) {
+    window.location.href = "/login.html";
+}
 
 const input = document.getElementById("taskInput");
 const list = document.getElementById("taskList");
@@ -88,3 +88,9 @@ input.addEventListener("keypress", (e) => {
         document.getElementById("addTaskBtn").click();
     }
 });
+import { logout } from "./auth.js";
+
+document.getElementById("logoutBtn").onclick = () => {
+    logout();
+    window.location.href = "login.html";
+};
